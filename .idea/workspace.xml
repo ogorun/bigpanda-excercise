@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dd075692-249c-463e-87bb-fcd74c31e6e8" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/docker-compose.yml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="spray-sample.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -104,7 +104,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="MultiMarkdownFxPreviewEditor">
             <state />
@@ -116,6 +116,16 @@
                 <folding />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.11166253">
+              <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -163,6 +173,7 @@
         <option value="$USER_HOME$/.ivy2/cache/com.typesafe.akka/akka-testkit_2.11/srcs/akka-testkit_2.11-2.3.6-sources.jar!/akka/testkit/TestKit.scala" />
         <option value="$PROJECT_DIR$/.idea/.name" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
       </list>
     </option>
   </component>
@@ -748,7 +759,13 @@
       <option name="project" value="LOCAL" />
       <updated>1460058815047</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="readme&#10;">
+      <created>1460060649962</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1460060649962</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -795,7 +812,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first remote commit" />
     <MESSAGE value="Merge branch 'master' of github.com:ogorun/bigpanda-excercise&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of github.com:ogorun/bigpanda-excercise&#10;" />
+    <MESSAGE value="readme&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="readme&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1069,6 +1087,14 @@
             <folding />
           </first_editor>
           <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.11166253">
+          <caret line="3" column="20" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
