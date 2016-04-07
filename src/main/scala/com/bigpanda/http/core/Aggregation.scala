@@ -1,4 +1,4 @@
-package com.bigpanda.http
+package com.bigpanda.http.core
 
 /**
   * Created by olgagorun on 07/04/2016.

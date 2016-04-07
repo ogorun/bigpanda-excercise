@@ -24,6 +24,6 @@ class MemoryEntityCounterRepository extends EntityCounterRepository {
 
 }
 
-object MemoryEvenTypeRepository extends MemoryEntityCounterRepository with EventTypeRepository
+object MemoryEventTypeRepository extends MemoryEntityCounterRepository with EventTypeRepository
 
 object MemoryEventsByWordRepository extends MemoryEntityCounterRepository with EventsByWordRepository

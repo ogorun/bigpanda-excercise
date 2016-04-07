@@ -33,8 +33,13 @@ Data storage - Redis
 Possible improvements
 =====================
 
-- divide project to three different subprojects assembled to separate jars (data, http, streaming)
 - implement lambda architecture for more robust solution: store events in idempotent way and prepare aggregations once an hour (for example), 
-for get sum this stable part with data from current increment-like way only for new hour
+for resulting aggregations get sum of this stable part with data from current increment-like way only for new hour
+- create WorkerActor per request to increase throughput
+- use akka load balancer and supervisor strategy for WorkerActor actors
+- use wrapper actor for redis repository that uses pool of connections to Redis
+- use more common object factory instead of repositories factory (easier customization from configuration...)
 - tune type of storage for real streaming data needs: streaming and http throughput, time to store data, variety of words and types
-- add more testing/logging/configuration/environment separation and other needs of real production-ready product 
+- divide project to three different subprojects assembled to separate jars (data, http, streaming) - increase decoupling
+- if words/types variety is expected to be big, change http interface and use separate requests for counters per words and per types to be able to implement pagination
+- add more testing/logging/configuration/environment separation... (needs of real production-ready product) 
