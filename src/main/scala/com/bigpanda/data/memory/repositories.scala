@@ -10,7 +10,7 @@ import scala.concurrent.ExecutionContext.Implicits.global
   * Created by olgagorun on 07/04/2016.
   */
 
-class MemoryEntityCounterRepository extends EntityCounterRepository {
+sealed class MemoryEntityCounterRepository extends EntityCounterRepository {
   private lazy val storage: mutable.Map[String, Int] = mutable.Map[String, Int]().withDefaultValue(0)
 
   override def increment(entity: String): Future[Unit] =

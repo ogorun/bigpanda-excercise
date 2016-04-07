@@ -43,5 +43,6 @@ libraryDependencies ++= Seq (
   ,"io.spray" %% "spray-testkit" % sprayVersion % "test"
   // -- Json --
   ,"org.json4s" %% "json4s-native" % "3.2.11"
-  ,"com.typesafe.play" %% "play-json" % "2.4.0-M1"
+  ,"com.typesafe.play" %% "play-json" % "2.4.0-M1",
+  "net.debasishg" %% "redisclient" % "3.0"
 )
