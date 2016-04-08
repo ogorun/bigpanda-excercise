@@ -3,7 +3,7 @@ name := "bigpanda"
 version := "0.1.0-SNAPSHOT"
 
 /* scala versions and options */
-scalaVersion := "2.11.4"
+scalaVersion := "2.11.7"
 
 // These options will be used for *all* versions.
 scalacOptions ++= Seq(
@@ -36,6 +36,7 @@ libraryDependencies ++= Seq (
   ,"com.typesafe.akka" %% "akka-testkit" % akkaVersion % "test"
   ,"com.typesafe.akka" %% "akka-actor" % akkaVersion
   ,"com.typesafe.akka" %% "akka-slf4j" % akkaVersion
+  ,"com.typesafe.akka" %% "akka-stream-experimental" % "2.0.4"
   // -- Spray --
   ,"io.spray" %% "spray-routing" % sprayVersion
   ,"io.spray" %% "spray-can" % sprayVersion

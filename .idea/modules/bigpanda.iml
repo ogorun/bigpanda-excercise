@@ -30,7 +30,6 @@
     <orderEntry type="library" name="SBT: com.github.nscala-time:nscala-time_2.11:1.4.0:jar" level="project" />
     <orderEntry type="library" name="SBT: com.thoughtworks.paranamer:paranamer:2.6:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe:config:1.2.1:jar" level="project" />
-    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.11:2.3.6:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.akka:akka-slf4j_2.11:2.3.6:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: com.typesafe.akka:akka-testkit_2.11:2.3.6:jar" level="project" />
     <orderEntry type="library" name="SBT: com.typesafe.play:play-datacommons_2.11:2.4.0-M1:jar" level="project" />
@@ -53,11 +52,9 @@
     <orderEntry type="library" name="SBT: org.parboiled:parboiled-core:1.1.6:jar" level="project" />
     <orderEntry type="library" name="SBT: org.parboiled:parboiled-scala_2.11:1.1.6:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-compiler:2.11.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.4:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-lang:scala-reflect:2.11.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-lang:scala-reflect:2.11.2:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-lang:scalap:2.11.0:jar" level="project" />
-    <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.1:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.1:jar" level="project" />
     <orderEntry type="library" scope="TEST" name="SBT: org.scala-lang.modules:scala-xml_2.11:1.0.2:jar" level="project" />
     <orderEntry type="library" name="SBT: org.scala-stm:scala-stm_2.11:0.7:jar" level="project" />
@@ -67,5 +64,12 @@
     <orderEntry type="library" name="SBT: org.slf4j:slf4j-api:1.7.6:jar" level="project" />
     <orderEntry type="library" name="SBT: commons-pool:commons-pool:1.6:jar" level="project" />
     <orderEntry type="library" name="SBT: net.debasishg:redisclient_2.11:3.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe:ssl-config-akka_2.11:0.1.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe:ssl-config-core_2.11:0.1.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-actor_2.11:2.3.15:jar" level="project" />
+    <orderEntry type="library" name="SBT: com.typesafe.akka:akka-stream-experimental_2.11:2.0.4:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.reactivestreams:reactive-streams:1.0.0:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang:scala-library:2.11.7:jar" level="project" />
+    <orderEntry type="library" name="SBT: org.scala-lang.modules:scala-parser-combinators_2.11:1.0.4:jar" level="project" />
   </component>
 </module>
