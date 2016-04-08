@@ -42,4 +42,5 @@ for resulting aggregations get sum of this stable part with data from current in
 - tune type of storage for real streaming data needs: streaming and http throughput, time to store data, variety of words and types
 - divide project to three different subprojects assembled to separate jars (data, http, streaming) - increase decoupling
 - if words/types variety is expected to be big, change http interface and use separate requests for counters per words and per types to be able to implement pagination
+- get repositories from solition configuration (keep them synchronized for streaming and http parts)
 - add more error handling/testing/logging/configuration/environment separation... (needs of real production-ready product) 
