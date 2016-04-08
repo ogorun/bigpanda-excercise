@@ -1,13 +1,19 @@
 package com.bigpanda.streaming
 
+import java.util.concurrent.TimeUnit
+
 import akka.actor.ActorSystem
-import akka.stream.{ActorMaterializerSettings, Supervision, ActorMaterializer}
+import akka.stream.{ClosedShape, ActorMaterializerSettings, Supervision, ActorMaterializer}
 import akka.stream.scaladsl._
-import com.bigpanda.data.{EventTypeRepository, Event}
+import com.bigpanda.data.memory.{MemoryEventsByWordRepository, MemoryEventTypeRepository}
+import com.bigpanda.data.redis.{RedisEventsByWordRepository, RedisEventTypeRepository}
+import com.bigpanda.data.{EventsByWordRepository, EventTypeRepository, Event}
 
 import org.json4s._
 import org.json4s.native.Serialization
 
+import scala.concurrent.duration.Duration
+import scala.concurrent.{Await, Future}
 import scala.concurrent.forkjoin.ThreadLocalRandom
 
 /**
@@ -55,14 +61,53 @@ object EventProcessor extends App {
   val testSource = Source.fromIterator(() => testLines)
 
   val consoleSink = Sink.foreach[Event](println)
+  val consoleTraceFlow = Flow[Event].map(println)
 
   val deserializeJSON = Flow[String].map(Serialization.read[Event])
 
-  def incrementEventType(repository: EventTypeRepository) = Flow[Event].map { event => repository.increment(event.event_type) }
+  val addWordsSet = Flow[Event].map {event => event.data.split("\\n")}
 
+  def incrementEventType(repository: EventTypeRepository) = Flow[Event].map { event => Await.result(repository.increment(event.event_type), Duration.create(5, TimeUnit.SECONDS)); event }
+
+  def incrementEventByWord(repository: EventsByWordRepository) = Flow[Event].map { event => Await.result(repository.increment(event.data), Duration.create(5, TimeUnit.SECONDS)); event }
+
+  val redisIncrementEventType = incrementEventType(new RedisEventTypeRepository("192.168.59.100", 6379))
+
+  val redisIncrementEventWord = incrementEventByWord(new RedisEventsByWordRepository("192.168.59.100", 6379))
+
+//  val graph = GraphDSL.create() { implicit builder =>
+//      import GraphDSL.Implicits._
+//      val broadcast = builder.add(Broadcast[Event](2)) // the splitter - like a Unix tee
+//      testSource ~> deserializeJSON ~> redisIncrementEventType ~> consoleTraceFlow ~> Sink.ignore
+//      broadcast ~> redisIncrementEventWord ~> consoleTraceFlow ~> Sink.ignore // connect other side of splitter to console
+//      ClosedShape
+//  }
+//  val materialized = RunnableGraph.fromGraph(graph).run()
+
+  val memoryIncrementEventType = incrementEventType(MemoryEventTypeRepository)
+  val memoryIncrementEventsByWord = incrementEventByWord(MemoryEventsByWordRepository)
+
+//  testSource.
+//    via(deserializeJSON).
+//    via(redisIncrementEventType).
+//    via(redisIncrementEventWord).
+//    runWith(consoleSink).
+//    onComplete(_ => system.shutdown())
 
   testSource.
     via(deserializeJSON).
+    via(memoryIncrementEventType).
+    via(memoryIncrementEventsByWord).
     runWith(consoleSink).
-    onComplete(_ => system.shutdown())
+    onComplete { _ =>
+      val future = for {
+        eventsByType <- MemoryEventTypeRepository.getAll()
+        eventsByWord <- MemoryEventsByWordRepository.getAll()
+      } yield (eventsByType, eventsByWord)
+      val result = Await.result(future, Duration.create(5, TimeUnit.SECONDS))
+      println(result)
+      system.shutdown()
+    }
+
+
 }

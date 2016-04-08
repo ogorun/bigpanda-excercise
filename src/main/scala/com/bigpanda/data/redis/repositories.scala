@@ -17,8 +17,8 @@ import Parse.Implicits._
 sealed class RedisEntityCounterRepository(host: String, port: Int, key: String) extends EntityCounterRepository {
   private lazy val client = new RedisClient(host, port)
 
-  override def increment(entity: String): Future[Unit] =
-    Future(client.hincrby(key, entity, 1))
+  override def increment(entity: String): Future[Int] =
+    Future(client.hincrby(key, entity, 1).getOrElse(1L).toInt)
 
   override def get(entity: String): Future[Int] =
     Future(client.hget[Int](key, entity).getOrElse(0))
